@@ -306,6 +306,7 @@ func ClearMeta(engines *engine_util.Engines, kvWB, raftWB *engine_util.WriteBatc
 
 // Append the given entries to the raft log and update ps.raftState also delete log entries that will
 // never be committed
+// TODO: 想办法改造一下, 变成对外只有entries的, raftWB应该是storage对内隐藏的策略, AppendWithIndex的
 func (ps *PeerStorage) Append(entries []eraftpb.Entry, raftWB *engine_util.WriteBatch) error {
 	// Your Code Here (2B).
 	return nil
